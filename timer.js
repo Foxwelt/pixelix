@@ -39,7 +39,6 @@ function recover() {
 
 }
 
-function counter() {
 
     pixel.forEach(elem => {
         if (elem.classList.contains("pics") || elem.classList.contains("picsb")) {
@@ -47,7 +46,7 @@ function counter() {
         }
     })
     console.log(n);
-};
+
 
 
 function chasy(num) {
