@@ -147,6 +147,6 @@ gameButton.onclick = function() {
 
 
 
-    counter();
+    
 
 }
