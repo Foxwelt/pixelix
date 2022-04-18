@@ -7,13 +7,23 @@ let picsb = document.querySelectorAll(".picsb");
 let fail = document.querySelector(".fail");
 let victory = document.querySelector(".victory");
 let timerId = setTimeout(chasy);
+let secundomer = document.querySelector(".secundomer");
 let n = 0;
 let k = 0;
 let num2 = 0;
 let e = 0;
 let num = 0;
+let seconds = 30;
+
+function zalup(){
+
+    --seconds;
+    secundomer.textContent = seconds;
+}
+
 
 function recover() {
+    clearTimeout(chasy);
     gameButton.classList.remove("lock");
     pixel.forEach(elem => {
         num2 = 0;
@@ -81,20 +91,23 @@ function chasy(num) {
     };
 
 
-    if (num > 10 && num < 51) {
+    if (num > 10 && num < 300) {
         console.log(num);
-        setTimeout(chasy, 500, ++num);
-
+        setTimeout(chasy, 100, ++num);
+        
+        
+        
         pixel.forEach(elem => {
             console.log(k);
             elem.onclick = function() {
 
                 if (elem.classList.contains("pics") || elem.classList.contains("picsb")) {
                     k += 1;
-
+                    elem.classList.add("lock");
                     elem.style.backgroundColor = "green";
 
                 } else {
+                    elem.classList.add("lock");
                     elem.style.backgroundColor = "red";
                     e += 1;
 
@@ -121,12 +134,13 @@ function chasy(num) {
             })
 
 
-        } else if (e === 3 || num === 40) {
+        } else if (e === 3 || num === 300) {
             fail.style.display = "block";
             console.log("HUESOS!!!!!!!!!!");
             num2 = 50;
             pixel.forEach(element => {
                 element.classList.add("lock");
+                
 
             })
 
@@ -149,3 +163,4 @@ gameButton.onclick = function() {
     
 
 }
+
